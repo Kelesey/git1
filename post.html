@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章 · 我的技术博客</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 提前应用主题，避免页面闪烁（FOUC） -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme");
+      if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+</head>
+<body data-page="post">
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Dev<span class="dot">Log</span></a>
+      <div class="nav-actions">
+        <ul class="nav-links">
+          <li><a href="index.html" data-page="home">首页</a></li>
+          <li><a href="index.html#about" data-page="about">关于我</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 文章详情（由 js/main.js 根据 ?id= 渲染） -->
+  <main class="container">
+    <div class="post-container" id="post-container"></div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 DevLog · 用 <span class="heart">♥</span> 与纯 HTML5 + CSS3 + JavaScript 构建</p>
+    </div>
+  </footer>
+
+  <script src="js/posts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
